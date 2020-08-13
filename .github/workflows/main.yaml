@@ -1,0 +1,27 @@
+name: Docker Publish
+
+on:
+  push:
+    branches: 
+      - 'release/services/*'
+    paths:
+      - 'services/golang'
+  
+defaults:
+  run:
+    shell: 'bash'
+    working-directory: 'services/golang'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build and Publish Docker Image
+      env:
+        Password: ${{ secrets.DOCKER_PASSWORD }}
+        Username: 'joeamedeo'
+      run: ./scripts/buildAndPublish.sh
+      
+
+
