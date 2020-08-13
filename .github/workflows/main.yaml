@@ -4,8 +4,6 @@ on:
   push:
     branches: 
       - 'release/services/*'
-    paths:
-      - 'services/golang'
   
 defaults:
   run:
