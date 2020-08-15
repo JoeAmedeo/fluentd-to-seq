@@ -1,0 +1,72 @@
+$primary: #bb86fc;
+$primary-focus: #d2adff;
+$primary-varient: #3700b3;
+$secondary: #03dec6;
+$background-1: #121212;
+$background-2: #212121;
+$background-3: #303030;
+$background-4: #424242;
+$surface: #121212;
+$error: #cf6679;
+$on-primary: #000000;
+$on-secondary: #000000;
+$on-background: #ffffff;
+$on-surface: #ffffff;
+$on-error: #ffffff;
+
+.app {
+  background-color: $background-1;
+  color: $on-background;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 25% minmax(350px, 50%) 25%;
+  justify-items: center;
+}
+
+.panel {
+  background-color: $background-3;
+  min-width: 500px;
+  width: 50%;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: 100px auto;
+  align-items: center;
+  justify-items: center;
+}
+
+.title {
+  font-size: 64px;
+}
+
+.form {
+  width: 50%;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-areas: 'a a a a a b'
+                       'c c c c c c';
+}
+
+.textInput {
+  grid-area: a;
+}
+
+.logType {
+  background-color: $background-4;
+  color: $on-background;
+  border-color: $on-background;
+  grid-area: b;
+}
+
+.sendButton {
+  border-radius: 4px;
+  background-color: $primary;
+  color: $on-primary;
+  border-color: $on-primary;
+  border-style: solid;
+  grid-area: c;
+  width: 100%;
+  transition: .5s;
+  &:hover {
+    background-color: $primary-focus;
+  }
+}
