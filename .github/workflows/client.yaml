@@ -1,0 +1,22 @@
+name: Docker Publish Client
+
+on:
+  push:
+    branches: 
+     - 'release/client/*'
+
+defaults:
+  run:
+    shell: 'bash'
+    working-directory: './client'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build and Publish Docker Image
+        env:
+          Password: ${{ secrets.DOCKER_PASSWORD }}
+          Username: 'joeamedeo'
+        run: TODO
