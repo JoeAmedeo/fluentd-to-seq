@@ -19,4 +19,5 @@ jobs:
         env:
           Password: ${{ secrets.DOCKER_PASSWORD }}
           Username: 'joeamedeo'
-        run: TODO
+          Image: 'log-client'
+        run: ../../scripts/buildAndPublish.sh
