@@ -20,4 +20,4 @@ jobs:
           Password: ${{ secrets.DOCKER_PASSWORD }}
           Username: 'joeamedeo'
           Image: 'log-client'
-        run: ../../scripts/buildAndPublish.sh
+        run: ../scripts/buildAndPublish.sh
