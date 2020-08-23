@@ -38,6 +38,10 @@ const App = () => {
     singleValue: (provided: any, _: any) => ({
       ...provided,
       color: "#ffffff",
+    }),
+    menu: (provided: any, _: any) => ({
+      ...provided,
+      borderColor: "red"
     })
   }
 
