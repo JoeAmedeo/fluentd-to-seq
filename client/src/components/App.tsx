@@ -29,7 +29,10 @@ const App = () => {
     }),
     control: (provided: any, _: any) => ({
       ...provided,
+      ":hover": { borderColor: "#ffffff"}, 
+      borderColor: "#ffffff",
       backgroundColor: "#424242",
+      boxShadow: "none",
       height: "100%",
     }),
     singleValue: (provided: any, _: any) => ({
