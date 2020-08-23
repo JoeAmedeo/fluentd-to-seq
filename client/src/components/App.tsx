@@ -15,11 +15,28 @@ const App = () => {
 
   const selectionOptions = useMemo(() => {
     return [
-      { value: "info", display: "Info" },
-      { value: "warn", display: "Warn" },
-      { value: "error", display: "Error" }
+      { value: "info", label: "Info" },
+      { value: "warn", label: "Warn" },
+      { value: "error", label: "Error" }
     ]
   }, []);
+
+  const customStyles: any = {
+    option: (provided: any, state: { isSelected: any; isFocused: any; }) => ({
+      ...provided,
+      backgroundColor: state.isFocused ? "#424242" : "#303030",
+      color: "#ffffff",
+    }),
+    control: (provided: any, _: any) => ({
+      ...provided,
+      backgroundColor: "#424242",
+      height: "100%",
+    }),
+    singleValue: (provided: any, _: any) => ({
+      ...provided,
+      color: "#ffffff",
+    })
+  }
 
   return (
     <div className="app">
@@ -34,7 +51,7 @@ const App = () => {
             placeholder="Type a message to log..."
             onChange={ (event) => setMessage(event.target.value) }
           />
-          <Select options={selectionOptions} className="logType"/>
+          <Select options={selectionOptions} onChange={(option: any) => setLevel(option?.value)} styles={customStyles} components={{ IndicatorSeparator: () => null }}/>
           <button className="sendButton" onClick={sendLogRequest}>Send</button>
         </div>
       </div>
