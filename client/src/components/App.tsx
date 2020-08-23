@@ -39,10 +39,6 @@ const App = () => {
       ...provided,
       color: "#ffffff",
     }),
-    menu: (provided: any, _: any) => ({
-      ...provided,
-      borderColor: "red"
-    })
   }
 
   return (
