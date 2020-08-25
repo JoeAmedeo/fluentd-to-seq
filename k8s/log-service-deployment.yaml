@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-service-deployment
+  labels:
+    app: log-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      apps: log-service
+  template:
+    metadata:
+      labels:
+        app: log-service
+    spec:
+      containers:
+      - name: log-service
+        image: joeamedeo/log-service:1.0.0
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+          requests:
+            memory: "128Mi"
+            cpu: "500m"

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-client-deployment
+  labels:
+    app: log-client
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      apps: log-client
+  template:
+    metadata:
+      labels:
+        app: log-client
+    spec:
+      containers:
+      - name: log-client
+        image: joeamedeo/log-client:1.0.0
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+          requests:
+            memory: "128Mi"
+            cpu: "500m"
