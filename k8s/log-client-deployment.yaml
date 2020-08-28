@@ -2,13 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: log-client-deployment
+  namespace: fluentd-to-seq
   labels:
     app: log-client
 spec:
   replicas: 3
   selector:
     matchLabels:
-      apps: log-client
+      app: log-client
   template:
     metadata:
       labels:
@@ -20,9 +21,9 @@ spec:
         ports:
         - containerPort: 80
         resources:
-          limits:
+          requests:
             memory: "64Mi"
             cpu: "250m"
-          requests:
+          limits:
             memory: "128Mi"
             cpu: "500m"

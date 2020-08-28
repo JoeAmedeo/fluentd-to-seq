@@ -2,11 +2,12 @@ kind: Service
 apiVersion: v1
 metadata:
   name:  log-service-cluster-ip-service
+  namespace: fluentd-to-seq
 spec:
   selector:
     app:  log-service
   type:  ClusterIP
   ports:
   - name:  log-service
-    port:  80
+    port:  8080
     targetPort:  8080

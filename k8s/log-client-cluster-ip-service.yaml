@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name:  log-client-cluster-ip-service
+  namespace: fluentd-to-seq
 spec:
   selector:
     app:  log-client
@@ -9,4 +10,4 @@ spec:
   ports:
   - name:  log-client
     port:  80
-    targetPort:  8080
+    targetPort:  80
