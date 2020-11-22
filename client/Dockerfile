@@ -1,6 +1,6 @@
 FROM node:12.18.3-alpine3.10 AS builder
 
-WORKDIR ./app
+WORKDIR /app
 
 COPY package*.json tsconfig.json ./
 
