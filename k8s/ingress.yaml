@@ -1,7 +1,7 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress
+  name: test-ingress
   namespace: fluentd-to-seq
   annotations:
     nginx.ingress.kubernetes.io/nginx.class: nginx
@@ -9,7 +9,10 @@ spec:
   rules:
   - http:
       paths:
-      - path: /
+      - path: /test
+        pathType: Prefix
         backend:
-          serviceName: log-client-cluster-ip-service
-          servicePort: 80
+          service:
+            name: log-client-cluster-ip-service
+            port: 
+              number: 80
