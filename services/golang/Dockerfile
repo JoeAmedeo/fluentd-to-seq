@@ -2,8 +2,9 @@
 
 FROM golang:alpine AS builder
 WORKDIR /app
-COPY ./src ./src
 COPY go.mod go.sum ./
+RUN go mod download
+COPY ./src ./src
 RUN go build -o ./bin/app ./src
 
 FROM alpine:latest
